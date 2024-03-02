@@ -81,8 +81,7 @@ class MultiModalDataGenerator(Sequence):
         inputs.append(rgb_images)
 
 
-        # Targets (class labels)
-        class_labels = self.config.class_labels
+        class_labels = {'Arborio': 0, 'Basmati': 1, 'Ipsala': 2, 'Jasmine': 3, 'Karacadag': 4}
         
         # Convert class labels to integers
         int_labels = batch_df['class'].replace(class_labels).values
