@@ -222,6 +222,7 @@ def train(config):
 
     # Log confusion matrix and class-wise metrics to wandb
     class_names = [f'bin_{i}' for i in range(config.num_classes)]
+    self.config.class_labels = class_names
     wandb.log({
         "conf_mat": wandb.plot.confusion_matrix(
             probs=None,
