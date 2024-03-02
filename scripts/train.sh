@@ -23,7 +23,7 @@ num_classes=5 # Number of classes
 trainable_epochs=0 # Number of epochs before the backbone becomes trainable
 
 # Running the training script with parameters
-nohup python ./train.py \
+nohup python /kaggle/working/beyond-the-jupyter-notebook/src/utils/train.py \
   --learning_rate $learning_rate \
   --batch_size $batch_size \
   --epochs $epochs \
