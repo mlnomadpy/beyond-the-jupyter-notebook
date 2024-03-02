@@ -22,7 +22,7 @@ BATCH_SIZE=256
 NUM_IMG_LIM=100000
 
 # Run test.py with the specified arguments
-nohup python src/test.py --model_path $MODEL_PATH \
+nohup python /workspaces/beyond-the-jupyter-notebook/src/test.py --model_path $MODEL_PATH \
             --dataset_path $dataset_path \
             --num_classes $NUM_CLASSES \
             --img_height $IMG_HEIGHT \
