@@ -31,8 +31,6 @@ nohup python /content/beyond-the-jupyter-notebook/src/train.py \
   --batch_size $batch_size \
   --epochs $epochs \
   --dataset_path $dataset_path \
-  --depth_path $depth_path \
-  --normal_path $normal_path \
   --img_height $img_height \
   --img_width $img_width \
   --seed $seed \
@@ -40,7 +38,6 @@ nohup python /content/beyond-the-jupyter-notebook/src/train.py \
   --test_dataset_path $test_dataset_path \
   --num_img_lim $num_img_lim \
   --val_split $val_split \
-  --n_cross_validation $n_cross_validation \
   --num_classes $num_classes \
   --trainable_epochs $trainable_epochs \
   --project $project \
