@@ -21,6 +21,9 @@ val_split=0.2 # Validation split
 n_cross_validation=5 # Number of bins for cross-validation
 num_classes=5 # Number of classes
 trainable_epochs=0 # Number of epochs before the backbone becomes trainable
+project='beyond-jup'
+entity='skywolf'
+model_name='BasicCNN'
 
 # Running the training script with parameters
 nohup python /content/beyond-the-jupyter-notebook/src/train.py \
@@ -40,5 +43,8 @@ nohup python /content/beyond-the-jupyter-notebook/src/train.py \
   --n_cross_validation $n_cross_validation \
   --num_classes $num_classes \
   --trainable_epochs $trainable_epochs \
+  --project $project \
+  --entity $entity \
+  --model_name $model_name \
   > train_logs.out
 
