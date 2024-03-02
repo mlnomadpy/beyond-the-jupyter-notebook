@@ -14,8 +14,8 @@ img_height=224
 img_width=224
 seed=420
 gpu='2'
-dataset_path='/kaggle/working/beyond-the-jupyter-notebook/data/processed' # Path to the dataset directory
-test_dataset_path='/kaggle/working/beyond-the-jupyter-notebook/data/processed' # Path to the test dataset directory
+dataset_path='/content/beyond-the-jupyter-notebook/data/processed' # Path to the dataset directory
+test_dataset_path='/content/beyond-the-jupyter-notebook/data/processed' # Path to the test dataset directory
 num_img_lim=100000 # Number of images per class
 val_split=0.2 # Validation split
 n_cross_validation=5 # Number of bins for cross-validation
@@ -23,7 +23,7 @@ num_classes=5 # Number of classes
 trainable_epochs=0 # Number of epochs before the backbone becomes trainable
 
 # Running the training script with parameters
-nohup python /kaggle/working/beyond-the-jupyter-notebook/src/train.py \
+nohup python /content/beyond-the-jupyter-notebook/src/train.py \
   --learning_rate $learning_rate \
   --batch_size $batch_size \
   --epochs $epochs \
