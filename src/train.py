@@ -45,6 +45,10 @@ def train(config):
     class_names = [f'bin_{i}' for i in range(num_classes)]
     config.class_names = class_names
 
+    # Log confusion matrix and class-wise metrics to wandb
+    class_names = [f'bin_{i}' for i in range(config.num_classes)]
+    config.class_labels = class_names
+
 
     try:
         gpus = tf.config.list_physical_devices('GPU')
@@ -220,9 +224,6 @@ def train(config):
 
     metrics, y_true, y_pred, y_pred_probs = evaluate_test_data(val_data, model, config.num_classes, config)
 
-    # Log confusion matrix and class-wise metrics to wandb
-    class_names = [f'bin_{i}' for i in range(config.num_classes)]
-    self.config.class_labels = class_names
     wandb.log({
         "conf_mat": wandb.plot.confusion_matrix(
             probs=None,
