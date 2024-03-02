@@ -22,9 +22,6 @@ import wandb
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-from utils.training.train_step import train_step
-from utils.training.validation_step import val_step
-
 from utils.testing.evaluate_test_data import evaluate_test_data
 
 from utils.data_loaders.load_data import load_data
@@ -34,6 +31,22 @@ from utils.models.build_model import build_model
 from utils.miscs.setup_gpu import setup_gpus
 from utils.miscs.set_seeds import set_seed
 
+@tf.function
+def train_step(inputs, targets, model, class_weight, loss_fn, optimizer):
+    with tf.GradientTape() as tape:
+        predictions = model(inputs, training=True)
+        total_loss = loss_fn(targets, predictions)
+
+    gradients = tape.gradient(total_loss, model.trainable_variables)
+    optimizer.apply_gradients(zip(gradients, model.trainable_variables))
+    
+    return total_loss, predictions
+
+@tf.function
+def val_step(inputs, targets, model, loss_fn):
+    predictions = model(inputs, training=False)
+    total_v_loss = loss_fn(targets, predictions)
+    return total_v_loss, predictions
 
 
 def train(config):
