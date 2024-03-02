@@ -32,7 +32,7 @@ from utils.miscs.setup_gpu import setup_gpus
 from utils.miscs.set_seeds import set_seed
 
 @tf.function
-def train_step(inputs, targets, model, class_weight, loss_fn, optimizer):
+def train_step(inputs, targets, model, loss_fn, optimizer):
     with tf.GradientTape() as tape:
         predictions = model(inputs, training=True)
         total_loss = loss_fn(targets, predictions)
