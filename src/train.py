@@ -55,12 +55,8 @@ def train(config):
 
 
     num_classes = config.num_classes
-    class_names = [f'bin_{i}' for i in range(num_classes)]
-    config.class_names = class_names
+    class_names = config.class_names.split(',')
 
-    # Log confusion matrix and class-wise metrics to wandb
-    class_names = [f'bin_{i}' for i in range(config.num_classes)]
-    config.class_labels = class_names
 
 
     try:
@@ -297,6 +293,7 @@ if __name__ == '__main__':
     parser.add_argument('--model_name', type=str, required=True, help='Model Name.')
     parser.add_argument('--project', type=str, required=True, help='Wandb Project.')
     parser.add_argument('--entity', type=str, required=True, help='Wandb Entity.')
+    parser.add_argument('--class_names', type=str, required=True, help='Class Names.')
 
     args = parser.parse_args()
 

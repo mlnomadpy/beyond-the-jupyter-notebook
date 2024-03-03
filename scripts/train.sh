@@ -24,6 +24,8 @@ trainable_epochs=0 # Number of epochs before the backbone becomes trainable
 project='beyond-jup'
 entity='skywolf'
 model_name='BasicCNN'
+class_names='Arborio,Basmati,Ipsala,Jasmine,Karacadag'
+        # class_labels = {'Arborio': 0, 'Basmati': 1, 'Ipsala': 2, 'Jasmine': 3, 'Karacadag': 4}
 
 # Running the training script with parameters
 nohup python /content/beyond-the-jupyter-notebook/src/train.py \
@@ -43,5 +45,6 @@ nohup python /content/beyond-the-jupyter-notebook/src/train.py \
   --project $project \
   --entity $entity \
   --model_name $model_name \
+  --class_names $class_names
   > train_logs.out
 

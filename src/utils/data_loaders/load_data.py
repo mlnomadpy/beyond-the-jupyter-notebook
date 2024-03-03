@@ -80,8 +80,8 @@ class MultiModalDataGenerator(Sequence):
         rgb_images = tf.stack(rgb_images) / 255.0
         inputs.append(rgb_images)
 
-
-        class_labels = {'Arborio': 0, 'Basmati': 1, 'Ipsala': 2, 'Jasmine': 3, 'Karacadag': 4}
+        class_names = self.config.class_names.split(',')
+        class_labels = {class_names[0]: 0, class_names[1]: 1, class_names[2]: 2, class_names[3]: 3, class_names[4]: 4}
         
         # Convert class labels to integers
         int_labels = batch_df['class'].replace(class_labels).values
